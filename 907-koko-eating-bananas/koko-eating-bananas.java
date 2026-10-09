@@ -9,7 +9,7 @@ class Solution {
         int ans = right;
         while (left < right) {
             int mid = left + (right - left) / 2;
-            if (getval(piles, h, mid)) {
+            if (getval(piles, mid) <= h) {
                 ans = mid;
                 right = mid;
             } else {
@@ -19,7 +19,7 @@ class Solution {
         return ans;
     }
 
-    private static boolean getval(int piles[], int h, int k) {
+    private static int getval(int piles[], int k) {
         int hrs = 0;
         for (int i = 0; i < piles.length; i++) {
             hrs = hrs + piles[i] / k;
@@ -27,7 +27,7 @@ class Solution {
                 hrs++;
             }
         }
-        return hrs <= h;
+        return hrs;
 
     }
 }
